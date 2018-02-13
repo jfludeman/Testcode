@@ -126,6 +126,6 @@ int colmaker(int *colvec,int n){
   rowmaker(rowvec, n);
   colmaker(colvec, n);
   for(p = 0; p < n*n; p++){
-    printf("%d  %d\n",rowvec[p], colvec[p]);
+    printf("%d:  %d,%d\n",p+1,rowvec[p], colvec[p]);
   }
  }
