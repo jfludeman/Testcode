@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
 int rowmaker(int *rowvec,int n){
   int countint = 3;
   int addint = 1;
@@ -119,14 +121,18 @@ int colmaker(int *colvec,int n){
  int main(void){
   int n;
   int p;
-  printf("enter int  ");
+  printf("Input: ");
   scanf("%d",&n);
+  printf("Output:\n");
   int rowvec[n*n];
   int colvec[n*n];
   int spirmat[n][n];
   int a=1;
   int row;
   int columns;
+  int length;
+  int k;
+  int inlength;
   rowmaker(rowvec, n);
   colmaker(colvec, n);
   for(p = 0; p < n*n; p++){
@@ -134,11 +140,31 @@ int colmaker(int *colvec,int n){
     a = a+1;
  
   }
-  
-  for (row=0; row<n; row++){
-  for(columns=0; columns<n; columns++) {
-	  printf("%5d     ", spirmat[row][columns]);
-  }
-  printf("\n");
+  length = floor(log10(n*n))+1;
+   for (row=0; row<n; row++){
+    for(columns=0; columns<n; columns++) {
+      int strpls[length+1];
+      inlength =  floor(log10(spirmat[row][columns]))+1;
+      if(inlength ==1){
+	printf(" ");}
+      printf("%d", spirmat[row][columns]);
+      for(k = 0; k < length+1-inlength; k++){
+        printf(" ");
+	if(inlength ==1){
+	  for(k = 0; k < length-inlength; k++){
+	    printf(" ");
+	  }
+	}
+      
+	else{
+	
+	  for(k = 0; k < length+1-inlength; k++){
+	 
+	    printf(" ");
+	  }
+	}
+      }
+    }
+    printf("\n");
   }
  }
