@@ -123,9 +123,22 @@ int colmaker(int *colvec,int n){
   scanf("%d",&n);
   int rowvec[n*n];
   int colvec[n*n];
+  int spirmat[n][n];
+  int a=1;
+  int row;
+  int columns;
   rowmaker(rowvec, n);
   colmaker(colvec, n);
   for(p = 0; p < n*n; p++){
-    printf("%d:  %d,%d\n",p+1,rowvec[p], colvec[p]);
+    spirmat[rowvec[p]-1][colvec[p]-1] = a;
+    a = a+1;
+ 
+  }
+  
+  for (row=0; row<n; row++){
+  for(columns=0; columns<n; columns++) {
+	  printf("%5d     ", spirmat[row][columns]);
+  }
+  printf("\n");
   }
  }
